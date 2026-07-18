@@ -126,3 +126,136 @@ generate.addEventListener("click",()=>{
     // will be added in Part 3B
 
 });
+
+// ===============================
+// Part 3B
+// Canvas Drawing
+// ===============================
+
+const canvas = document.getElementById("videoCanvas");
+const ctx = canvas.getContext("2d");
+
+function drawBenchmark(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Background
+    ctx.fillStyle="#ffffff";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // Header
+    const headerColor =
+        document.getElementById("headerColor").value;
+
+    ctx.fillStyle=headerColor;
+
+    ctx.fillRect(0,0,1080,140);
+
+    ctx.fillStyle="white";
+
+    ctx.font="bold 60px Arial";
+
+    ctx.textAlign="center";
+
+    ctx.fillText(
+
+        document.getElementById("title").value,
+
+        540,
+
+        90
+
+    );
+
+    let y=200;
+
+    ctx.textAlign="left";
+
+    ctx.font="bold 44px Arial";
+
+    gpuData.forEach((gpu)=>{
+
+        // Row line
+
+        ctx.strokeStyle="#DDDDDD";
+
+        ctx.beginPath();
+
+        ctx.moveTo(50,y+45);
+
+        ctx.lineTo(1030,y+45);
+
+        ctx.stroke();
+
+        // Percentage
+
+        ctx.fillStyle="#444";
+
+        ctx.fillText(
+
+            gpu.fps+"%",
+
+            70,
+
+            y
+
+        );
+
+        // GPU Name
+
+        ctx.fillStyle="#111";
+
+        ctx.fillText(
+
+            gpu.name,
+
+            250,
+
+            y
+
+        );
+
+        y+=80;
+
+    });
+
+}
+
+// ===============================
+// Part 3C
+// Animation + Generate Button
+// ===============================
+
+const generateBtn = document.getElementById("generateBtn");
+
+if (generateBtn) {
+    generateBtn.addEventListener("click", () => {
+
+        // Get latest GPU data
+        readGPUData();
+
+        // Draw benchmark
+        drawBenchmark();
+
+        // Simple animation (fade in)
+        let alpha = 0;
+
+        function animate() {
+
+            ctx.save();
+            ctx.globalAlpha = alpha;
+
+            drawBenchmark();
+
+            ctx.restore();
+
+            alpha += 0.05;
+
+            if (alpha < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        animate();
+    });
+}

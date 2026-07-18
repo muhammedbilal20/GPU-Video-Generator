@@ -1,1 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
 
+body{
+    background:#101114;
+    color:white;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+.left-panel{
+
+    width:380px;
+
+    background:#181b20;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+    border-right:2px solid #2b2f36;
+
+}
+
+.right-panel{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#0b0b0b;
+
+}
+
+h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+.gpuRow{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+.gpuName{
+
+    flex:2;
+
+}
+
+.gpuFPS{
+
+    width:90px;
+
+}
+
+.deleteRow{
+
+    width:45px;
+
+    background:#d83b3b;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.buttons{
+
+    margin-top:20px;
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.buttons button{
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#3657A7;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.buttons button:hover{
+
+    transform:scale(1.03);
+
+}
+
+#videoCanvas{
+
+    width:360px;
+
+    height:640px;
+
+    background:black;
+
+    border:4px solid #222;
+
+    border-radius:12px;
+
+    box-shadow:0 0 25px rgba(0,0,0,.6);
+
+}
+
+@media(max-width:1000px){
+
+.container{
+
+flex-direction:column;
+
+}
+
+.left-panel{
+
+width:100%;
+
+height:auto;
+
+}
+
+.right-panel{
+
+padding:20px;
+
+}
+
+#videoCanvas{
+
+width:270px;
+
+height:480px;
+
+}
+
+}

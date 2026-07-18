@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GPU Benchmark Video Generator</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>GPU Benchmark Video Generator</h1>
+
+<div class="left-panel">
+
+<label>Video Title</label>
+<input id="title" type="text" value="Relative Performance">
+
+<label>Header Color</label>
+<input id="headerColor" type="color" value="#3657A7">
+
+<div id="gpuList">
+
+<div class="gpuRow">
+
+<input
+class="gpuName"
+type="text"
+placeholder="GPU Name">
+
+<input
+class="gpuFPS"
+type="number"
+placeholder="FPS">
+
+<button class="deleteRow">
+✖
+</button>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button id="addGPU">
++ Add GPU
+</button>
+
+<button id="generate">
+Generate
+</button>
+
+<button id="record">
+Record Video
+</button>
+
+<button id="download">
+Download
+</button>
+
+</div>
+
+</div>
+
+<div class="right-panel">
+
+<canvas
+id="videoCanvas"
+width="1080"
+height="1920">
+</canvas>
+
+</div>
+
+</div>
+
+<video
+id="bgVideo"
+src="assets/background.mp4"
+muted
+loop
+playsinline
+style="display:none">
+</video>
+
+<audio
+id="bgMusic"
+src="assets/music.mp3">
+</audio>
+
+<script src="script.js"></script>
+<script src="animation.js"></script>
+<script src="recorder.js"></script>
+
+</body>
+</html>
